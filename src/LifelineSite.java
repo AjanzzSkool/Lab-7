@@ -5,8 +5,13 @@ public class LifelineSite extends Site {
 
     public double getBillableAmount() {
         double base = getBase();
-        double tax  = base * Site.TAX_RATE;
+        double tax = getTax(base);
         return base + tax;
+    }
+
+    private static double getTax(double base) {
+        double tax  = base * Site.TAX_RATE;
+        return tax;
     }
 
     private double getBase() {
