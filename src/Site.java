@@ -1,4 +1,5 @@
 
+
 public abstract class Site {
     protected final int units;
     protected final double rate;
@@ -8,5 +9,14 @@ public abstract class Site {
         this.units = units;
         this.rate = rate;
     }
+
+    // Template Method
+    public final double getBillableAmount() {
+        return getBase() + getTax(getBase());
+    }
+
+    protected abstract double getBase();
+    protected abstract double getTax(double base);
 }
+
 
